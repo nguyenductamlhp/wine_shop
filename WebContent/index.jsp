@@ -71,7 +71,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<li><a href="about.jsp">About</a></li>
 								<li><a href="wines.jsp">Wines</a></li>
 								<li><a href="products.jsp">Products</a></li>
-								<li><a href="shortcodes.jsp">Short Codes</a></li>
 								<li><a href="contact.jsp">Contact</a></li>
 							</ul>
 						</div>
@@ -182,86 +181,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	   <div class="container">
 	   	 <div class="faculty_top">
 	   	 <%
-	   	 for (int i = 0; i < 6; i++) {
+	   	 for (int i = 0; i < 9; i++) {
 	   	 %>
 	   	 	<div class="col-md-4 faculty_grid wow fadeInLeft animated" data-wow-delay=".5s">
 		   	  	<figure class="team_member">
-		   	  		<img src="images/5.jpg" class="img-responsive wp-post-image" alt="">
+		   	  		<img src="<%=listAllProduct.get(i).getProductImage()%>" class="img-responsive wp-post-image" alt="<%= listAllProduct.get(i).getProductName()%>">
 		   	  		<div></div>
 		   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines</a></h3>
 		   	  			<span class="person-deg"><%=listAllProduct.get(i).getProductName() %></span>
-		   	  			<p><a href="mailto:info@example.com">info(at)wine.com</a></p>
-		   	  			<p><%=2016 - listAllProduct.get(i).getProductProdate().getYear() %>Years</p>
-		   	  			
+		   	  			<p><a href="SingleProduct?productId=<%=listAllProduct.get(i).getProductId()%>"><%=listAllProduct.get(i).getProductDescribe() %></a></p>
+		   	  			<p><% %>Years</p>
 		   	  	   </figcaption>
-		   	  	 </figure>
+		   	  	</figure>
 		   	  </div>	
 	   	 <%	 
 	   	 }
 	   	 %>
-	   	  
-	   	  <div class="col-md-4 faculty_grid animated wow fadeInUp animated animated" data-wow-duration="1200ms" data-wow-delay="500ms">
-	   	  	<figure class="team_member">
-	   	  		<img src="images/7.jpg" class="img-responsive wp-post-image" alt="">
-	   	  		<div></div>
-	   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines</a></h3>
-	   	  			<span class="person-deg">Blue Wine</span>
-	   	  			<p><a href="mailto:info@example.com">info(at)wine.com</a></p>
-	   	  			<p>4 Years</p>
-	   	  			
-	   	  	   </figcaption>
-	   	  	 </figure>
-	   	  </div>
-	   	  <div class="col-md-4 faculty_grid wow fadeInRight animated" data-wow-delay=".5s">
-	   	  	<figure class="team_member">
-	   	  		<img src="images/6.jpg" class="img-responsive wp-post-image" alt="">
-	   	  		<div></div>
-	   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines </a></h3>
-	   	  			<span class="person-deg">Green Wine</span>
-	   	  			<p><a href="mailto:info@example.com">info(at)wine.com</a></p>
-	   	  			<p>4 Years</p>
-	   	  			
-	   	  	   </figcaption>
-	   	  	 </figure>
-	   	  </div>
-	   	  
-	   	
-	   	  <div class="col-md-4 faculty_grid wow fadeInLeft animated" data-wow-delay=".5s">
-	   	  	<figure class="team_member">
-	   	  		<img src="images/11.jpg" class="img-responsive wp-post-image" alt="">
-	   	  		<div></div>
-	   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines</a></h3>
-	   	  			<span class="person-deg">Red Wine</span>
-	   	  			<p><a href="mailto:info@example.com">info(at)wine.com</a></p>
-	   	  			<p>4 Years</p>
-	   	  			
-	   	  	   </figcaption>
-	   	  	 </figure>
-	   	  </div>
-	   	  <div class="col-md-4 faculty_grid animated wow fadeInUp animated animated" data-wow-duration="1200ms" data-wow-delay="500ms">
-	   	  	<figure class="team_member">
-	   	  		<img src="images/8.jpg" class="img-responsive wp-post-image" alt="">
-	   	  		<div></div>
-	   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines</a></h3>
-	   	  			<span class="person-deg">Red Wine</span>
-	   	  			<p><a href="mailto:info@example.com">info(at)wine.com</a></p>
-	   	  			<p>4 Years</p>
-	   	  			
-	   	  	   </figcaption>
-	   	  	 </figure>
-	   	  </div>
-	   	  <div class="col-md-4 faculty_grid wow fadeInRight animated" data-wow-delay=".5s">
-	   	  	<figure class="team_member">
-	   	  		<img src="images/12.jpg" class="img-responsive wp-post-image" alt="">
-	   	  		<div></div>
-	   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines</a></h3>
-	   	  			<span class="person-deg">Red Wine</span>
-	   	  			<p><a href="mailto:info@example.com">info(at)wine.com</a></p>
-	   	  			<p>4 Years</p>
-	   	  			
-	   	  	   </figcaption>
-	   	  	 </figure>
-	   	  </div>
 	   	  <div class="clearfix"> </div>
 	   	 </div>
 	  </div>
@@ -272,8 +207,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="container">
 				<div class="mid-content wow fadeInRight animated" data-wow-delay=".5s">
 					<h3>the best features</h3>
-					<p>Contrary to popular belief
-							, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+					<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
 					<a class="hvr-sweep-to-right more-in" href="singlepage.jsp">Read More</a>
 				</div>
 			</div>
@@ -355,6 +289,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="copy-right animated wow fadeInUp animated animated" data-wow-duration="1200ms" data-wow-delay="500ms">
 				<p>© 2016 Wines. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+				<p>© 2016 Wines. All rights reserved | Code by <a href="http://www.nguyenductamlhp.com">nguyenductamlhp</a></p>
 			</div>
 		</div>
 	</div>

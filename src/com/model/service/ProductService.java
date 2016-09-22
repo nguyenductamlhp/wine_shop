@@ -38,6 +38,19 @@ public class ProductService {
 		entityManagerFactory.close();
 		return listProduct;
 	}
+	public Product getProductById(int pId) {
+		Product product = new Product();
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("wine_shop");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		Query query = entityManager.createQuery("select p from Product p where p.productId = " + pId);
+		List<Product> list = query.getResultList();
+		entityManager.close();
+		entityManagerFactory.close();
+		if (list.size() != 0) {
+			return list.get(0);
+		}
+		return product;
+	}
 	
 	public  List<Product> getProductByKeyword(String keywork) {
 		List<Product> listProduct = new ArrayList<>();

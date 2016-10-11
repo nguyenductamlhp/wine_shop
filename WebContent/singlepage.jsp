@@ -12,15 +12,8 @@ CategoryService categoryService = new CategoryService();
 List<Product> listAllProduct = productService.getAllProduct();
 List<Category> listAllCategory = categoryService.getAllCategory();
 
+Product product = (Product)request.getAttribute("product");
 
-long productId = 1;
-if (request.getAttribute("productId") != null) {
-	productId = Integer.parseInt((String)request.getAttribute("productId"));	
-}
-else {
-	productId = Math.round(Math.random() * listAllProduct.size()) + 1;
-}
-Product product = productService.getProductById((int)productId);
 %>    
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
@@ -122,7 +115,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="single w3l-5">
 		<div class="container">
 				<div class="single-left1 w3ls-5">
-					<img src="<%=product.getProductImage() %>" alt=" " class="img-responsive">
+					<img src="<%=product.getProductImage() %>" alt="<%=product.getProductName() %>" class="img-responsive">
 					<h2><%=product.getProductName() %></h2>
 					<ul>
 						<li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">5 Tags</a></li>

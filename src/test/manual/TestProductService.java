@@ -30,8 +30,14 @@ public class TestProductService {
 			System.out.println(product.getProductName());
 		}
 	}
+	public static void testGetProductById(int id)  {
+		ProductService productService = new ProductService();
+		Product p = productService.getProductById(id);
+		System.out.println(p.getProductName());
+		
+	}
 	public static void main(String[] args) {
-		testGetAllProduct();
+		testGetProductById(5);
 	}
 
 }

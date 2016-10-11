@@ -120,7 +120,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						for (int i = 0; i < listAllProduct.size(); i++) {
 						%>
 							<div class="col-md-4 services-grid">
-								<a href="SingleProduct?productId=<%=listAllProduct.get(i).getProductId() %>" class="mask">					
+								<a href="SingleProductServlet?productId=<%=listAllProduct.get(i).getProductId() %>" class="mask">					
 									<img src=<%=listAllProduct.get(i).getProductImage() %> class="img-responsive zoom-img" alt="">
 								</a>							
 								<h4><%=listAllProduct.get(i).getProductName() %></h4>

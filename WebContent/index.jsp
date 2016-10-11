@@ -189,7 +189,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		   	  		<div></div>
 		   	  		<figcaption><h3 class="person-title"><a href="singlepage.jsp">Wines</a></h3>
 		   	  			<span class="person-deg"><%=listAllProduct.get(i).getProductName() %></span>
-		   	  			<p><a href="SingleProduct?productId=<%=listAllProduct.get(i).getProductId()%>"><%=listAllProduct.get(i).getProductDescribe() %></a></p>
+		   	  			<p><a href="SingleProductServlet?productId=<%=listAllProduct.get(i).getProductId()%>"><%=listAllProduct.get(i).getProductDescribe() %></a></p>
 		   	  			<p><% %>Years</p>
 		   	  	   </figcaption>
 		   	  	</figure>

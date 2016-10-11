@@ -8,32 +8,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class SingleProduct
- */
-@WebServlet("/SingleProduct")
+import com.model.entity.Product;
+import com.model.service.ProductService;
 
-public class SingleProduct extends HttpServlet {
+/**
+ * Servlet implementation class SingleProductServlet
+ */
+@WebServlet("/SingleProductServlet")
+
+public class SingleProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SingleProduct() {
+    public SingleProductServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = 1;
-		if (request.getAttribute("productId") != null) {
-			id = Integer.parseInt((String)request.getAttribute("productId"));
+		int productId = 0;
+		if (request.getParameter("productId") != null) {
+			productId = Integer.parseInt(request.getParameter("productId").trim());
 		}
 		
-		request.setAttribute("productId", Integer.toString(id));
+		ProductService productService = new ProductService();
+		Product product = productService.getProductById(productId);
+		request.setAttribute("product", product);
 		request.getRequestDispatcher("singlepage.jsp").forward(request, response);
 	}
 
